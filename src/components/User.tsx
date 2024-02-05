@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+type UserDetails = {
+  firstName: string;
+  lastName: string;
+  age: string;
+  street: string;
+  city: string;
+  state: string;
+  pin: string;
+  email: string;
+  password: string;
+};
+
 const User = () => {
-  const [userDetails, setUserDetails] = useState(
+  const [userDetails, setUserDetails] = useState<UserDetails | null>(
     localStorage.getItem("userDetails")
       ? JSON.parse(localStorage.getItem("userDetails"))
       : null
